@@ -1,0 +1,162 @@
+Admin: Table
+
+#	Name	               Type	        Collation	    Attributes	    Null	Default
+
+1	username  (Primary)    varchar(255)	utf8mb4_general_ci		     No	        None		
+
+2	password	       varchar(255)	utf8mb4_general_ci		     Yes	NULL	
+
+
+
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+Cart: Table
+
+
+
+#	Name	            Type	      Collation	  Attributes	Null	Default	
+
+
+1	id (Primary)       bigint(20)			                No	None
+2	price	           float			                No	None			
+3	quantity	   int(11)			                No	None			
+4	product_id Index   bigint(20)			                Yes	NULL	
+
+
+
+-----------------------------------
+id,   price,   quantity, product_id
+------------------------------------
+121  	90.25		1	50328
+202	350		1	52571
+430	435		1	50815
+559	49		1	3813
+769	328.5		1	72278
+-----------------------------------
+
+
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Customer:Table
+
+
+#	Name	           Type	           Collation	        Attributes	Null	Default	
+1	email (Primary)	   varchar(255)	   utf8mb4_general_ci		        No	Null
+2	address	           varchar(255)	   utf8mb4_general_ci		        Yes	NULL			
+3	contact	           varchar(255)	   utf8mb4_general_ci		        Yes	NULL			
+4	name	           varchar(255)	   utf8mb4_general_ci		        Yes	NULL			
+5	password	   varchar(255)	   utf8mb4_general_ci		        Yes	NULL		
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Product:Table
+
+
+
+
+#	Name	        Type	        Collation	     Attributes	   Null	 Default	
+1	id (Primary)	bigint(20)			                   No	 None
+2	actual_price	float			                           No	 None				
+3	avail	        varchar(255)	utf8mb4_general_ci		   Yes	 NULL			
+4	category	varchar(255)	utf8mb4_general_ci		   Yes	 NULL				
+5	des	        varchar(255)	utf8mb4_general_ci		   Yes	 NULL			
+6	discount	float			                           No	 None			
+7	imagepath	varchar(255)	utf8mb4_general_ci		   Yes	 NULL			
+8	name	        varchar(255)	utf8mb4_general_ci		   Yes	 NULL			
+9	price	        float			                           No	 None	
+
+product
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+id   actual_price	     avail  category		 des						 discount		 imagepath				 name,	 price
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+3813		100		yes	Indian	breakfast	 						51	./assets/images/dosa.jpg		Crispy Dosa		49
+50328		95		yes	Chinese	Rice with Egg and Chinese sauses			5	./assets/images/EggfriedRice.jpg	Egg Fried Rice	90.25
+50815		435		yes	Italian	Pizza topped with cotted cheese and vegies	0	./assets/images/paneerpizza.jpg	Paneer Pizza	435
+52571		350		yes	Indian	Chicken infused with butter and spices		0	./assets/images/ButterChicken.png	Butter Chicken	350
+72278		365		yes	Indian	Rice Steamed with Chicken and spices		10	./assets/images/biryani.jpg		Chicken Biryani	328.5
+79651		250		yes	Chinese	Steamed Bun with lamb mince				20	./assets/images/buns.jpg		Steamed Mince Bun	200
+87817		350		yes	Mexican	Wrapped Tortilla with Meat mince and Mayo		0	./assets/images/Burrito.jpg		Burrito		350
+88284		200		yes	Italian	Ravioli pasta filled with veg mince			18	./assets/images/ravioli.jpg		Ravioli		164
+								
+
+
+	
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+purchase:Table
+
+
+
+#	Name	                Type	        Collation	    Attributes	Null	Default	
+1	id (Primary)	        bigint(20)			                No	None		
+2	dop	                date			                        Yes	NULL				
+3	productname	        varchar(255)	utf8mb4_general_ci		Yes	NULL				
+4	quantity	        int(11)			                        No	None			
+5	totalcost	        float			                        No	None			
+6	transactionid	        varchar(255)	utf8mb4_general_ci		Yes	NULL			
+7	customer_email (Index)	varchar(255)	utf8mb4_general_ci		Yes	NULL
+
+Purchase
+--------------------------------------------------------------------------------------------
+id	         dop	   productname   quantity totalcost  transactionid   customer_email
+---------------------------------------------------------------------------------------------
+194440	2022-03-31	Butter Chicken	1	350		YASH733723711764	a
+215425	2022-03-28	Egg Fried Rice	1	90.25		TFIB572318598728	yash@gmail.com
+225062	2022-03-31	Paneer Pizza	1	435		YASH733723711764	a
+240365	2022-03-28	Ravioli	1	1	64		TFIB572318598728	yash@gmail.com
+277958	2022-04-01	Paneer Pizza	1	435		YASH82127861	yash@gmail.com
+290052	2022-03-30	Egg Fried Rice	1	90.25		TFIB814607303473	a
+290930	2022-03-30	Paneer Pizza	1	435		TFIB278150380147	a
+340802	2022-04-01	Egg Fried Rice	1	90.25		YASH82127861	yash@gmail.com
+343132	2022-03-30	Egg Fried Rice	1	90.25		TFIB742873114143	a@gmail.com
+365688	2022-03-30	Paneer Pizza	1	435		TFIB399918743577	a
+379556	2022-03-30	Elote de Corn	1	167.4		TFIB348697232799	yash@gmail.com
+397350	2022-04-04	Egg Fried Rice	2	180.5		YASH81248802	yash@gmail.com
+431786	2022-03-30	Paneer Pizza	1	435		TFIB742873114143	a@gmail.com
+447469	2022-03-30	Egg Fried Rice	1	90.25		TFIB325493956377	a
+542687	2022-03-30	Egg Fried Rice	1	90.25		TFIB760320332330	a@gmail.com
+579043	2022-03-30	Paneer Pizza	6	2610		TFIB939597192440	a
+605978	2022-03-30	Red Sause Pasta	1	435		TFIB348697232799	yash@gmail.com
+606465	2022-03-30	Egg Fried Rice	1	90.25		TFIB713179309915	a
+610263	2022-04-01	Paneer Pizza	1	435		YASH88868445	yash@gmail.com
+614557	2022-03-31	Paneer Pizza	1	435		YASH84798331	a
+620685	2022-03-30	Paneer Pizza	1	435		TFIB814607303473	a
+645637	2022-03-30	Elote de Corn	1	167.4		TFIB742873114143	a@gmail.com
+665568	2022-03-30	Paneer Pizza	1	435		TFIB784467300126	a
+678726	2022-03-30	Paneer Pizza	1	435		TFIB760320332330	a@gmail.com
+691437	2022-03-31	Egg Fried Rice	1	90.25		YASH733723711764	a
+694624	2022-03-28	Elote de Corn	1	167.4		TFIB572318598728	yash@gmail.com
+701040	2022-03-31	Butter Chicken	1	350		YASH84798331	a
+816417	2022-03-30	Paneer Pizza	1	435		TFIB640506920334	a
+826306	2022-03-28	Butter Chicken	1	350		TFIB572318598728	yash@gmail.com
+834128	2022-04-04	Butter Chicken	1	350		YASH81248802	yash@gmail.com
+845140	2022-04-04	Ravioli	1	1	64		YASH87898324	yash@gmail.com
+857894	2022-03-30	Paneer Pizza	1	435		TFIB713179309915	a
+869454	2022-03-30	Egg Fried Rice	1	90.25		TFIB399918743577	a
+881824	2022-04-04	Butter Chicken	1	350		YASH87898324	yash@gmail.com
+935385	2022-04-04	dosa			2	98		YASH81248802	yash@gmail.com
+950992	2022-03-29	Elote de Corn	1	167.4		TFIB686860660143	a
+957982	2022-04-01	Butter Chicken	1	350		YASH88868445	yash@gmail.com
+978788	2022-04-01	Butter Chicken	1	350		YASH82127861	yash@gmail.com
+987052	2022-04-04	Egg Fried Rice	1	90.25		YASH87898324	yash@gmail.com
+993835	2022-04-04	Chicken Biryani	1	328.5		YASH81248802	yash@gmail.com
+
+=================================================================================================	
+
+
+
+
+
+
+
+
